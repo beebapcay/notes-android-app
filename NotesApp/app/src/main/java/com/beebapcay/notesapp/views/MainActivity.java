@@ -1,8 +1,10 @@
-package com.beebapcay.notesapp;
+package com.beebapcay.notesapp.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.beebapcay.notesapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
