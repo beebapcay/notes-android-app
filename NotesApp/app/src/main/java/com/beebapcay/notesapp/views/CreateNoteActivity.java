@@ -9,20 +9,18 @@ import android.widget.ImageButton;
 
 import com.beebapcay.notesapp.R;
 
-public class MainActivity extends AppCompatActivity {
-
-    private static final int REQUEST_CODE_CREATE_NODE = 1;
+public class CreateNoteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_create_note);
 
-        ImageButton btnAddNote = findViewById(R.id.btn_add_note);
-        btnAddNote.setOnClickListener(new View.OnClickListener() {
+        ImageButton btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(getApplicationContext(), CreateNoteActivity.class), REQUEST_CODE_CREATE_NODE);
+                onBackPressed();
             }
         });
     }

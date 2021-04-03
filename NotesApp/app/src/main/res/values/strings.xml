@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Notes Application</string>
+
+    <string name="des_image">Image Description</string>
+    <string name="title_all_notes">All notes</string>
+    <string name="msg_number_of_notes">Number of notes</string>
+    <string name="hint_note_title">Note Title</string>
+    <string name="hint_note_content">Type note here ...</string>
 </resources>
