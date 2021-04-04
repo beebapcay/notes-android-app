@@ -6,4 +6,7 @@
     <string name="msg_number_of_notes">Number of notes</string>
     <string name="hint_note_title">Note Title</string>
     <string name="hint_note_content">Type note here ...</string>
+    <string name="default_date_time">Thu, 01 Jan 1970 00:00</string>
+    <string name="default_note_title">Note Title</string>
+    <string name="default_note_content">Content Note</string>
 </resources>

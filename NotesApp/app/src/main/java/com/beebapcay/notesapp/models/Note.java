@@ -22,6 +22,12 @@ public class Note implements Serializable {
     @ColumnInfo(name = "content")
     private String mContent;
 
+    public Note() {
+        mTitle = "";
+        mContent = "";
+        mDateTime = null;
+    }
+
     public int getId() {
         return mId;
     }
@@ -64,4 +70,6 @@ public class Note implements Serializable {
                 ", mContent='" + mContent + '\'' +
                 '}';
     }
+
+
 }

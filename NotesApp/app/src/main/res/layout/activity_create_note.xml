@@ -104,11 +104,31 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <TextView
+                android:id="@+id/text_date_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@null"
+                android:fontFamily="@font/open_sans_italic"
+                android:gravity="end"
+                android:includeFontPadding="false"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="@string/default_date_time"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_actions_bar" />
+
             <EditText
                 android:id="@+id/text_note_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@null"
                 android:fontFamily="@font/open_sans_regular"
                 android:gravity="top"
@@ -116,16 +136,18 @@
                 android:importantForAutofill="no"
                 android:includeFontPadding="false"
                 android:inputType="textMultiLine"
-                android:minHeight="@dimen/_300sdp"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingTop="@dimen/_10sdp"
-                android:paddingEnd="@dimen/_10sdp"
+                android:minHeight="@dimen/_100sdp"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:textColor="@color/colorTextPrimary"
                 android:textColorHint="@color/colorTextTertiary"
-                android:textSize="@dimen/_13ssp"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_actions_bar" />
+                app:layout_constraintTop_toBottomOf="@id/text_date_time" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     <color name="transparent">#00000000</color>
 
     <!--    Custom Application color    -->
-    <color name="colorPrimary">#FBFBFB</color>
+    <color name="colorPrimary">#F2F2F2</color>
     <color name="colorSecondary">#000000</color>
     <color name="colorAccent">#F36A50</color>
 
@@ -18,9 +18,13 @@
     <color name="colorTextTertiary">#BCBCBC</color>
     <color name="colorTextQuaternary">#FCFCFC</color>
 
-    <!--    #D95E00-->
-    <color name="colorQuickActionsBarBackground">#FBFBFB</color>
+    <color name="colorQuickActionsBarBackground">#F2F2F2</color>
     <color name="colorQuickActionsBarIcon">#000000</color>
     <color name="colorAddNoteIcon">#FFFFFF</color>
     <color name="colorAddNoteBackground">#F46A4E</color>
+
+    <color name="colorItemNoteBackground">#FFFFFF</color>
+    <color name="colorTextItemNoteTitle">#243347</color>
+    <color name="colorTextItemNoteDateTime">#888888</color>
+    <color name="colorTextItemNoteContent">#E6000000</color>
 </resources>
