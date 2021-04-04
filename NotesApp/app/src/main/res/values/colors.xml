@@ -27,4 +27,20 @@
     <color name="colorTextItemNoteTitle">#243347</color>
     <color name="colorTextItemNoteDateTime">#888888</color>
     <color name="colorTextItemNoteContent">#E6000000</color>
+
+    <color name="colorDefaultIndicator">#F46A4E</color>
+    <color name="colorDonePickColorIcon">#000000</color>
+    <color name="colorNoteBackground1">#FFFFFF</color>
+    <color name="colorNoteBackground2">#F8E2FF</color>
+    <color name="colorNoteBackground3">#DFF8FF</color>
+    <color name="colorNoteBackground4">#FFE0DE</color>
+    <color name="colorNoteBackground5">#DEFFF4</color>
+    <color name="colorNoteBackground6">#FFF9DD</color>
+
+    <color name="colorMiscellaneousBackground">#FFFFFF</color>
+    <color name="colorTextTitleMiscellaneous">#000000</color>
+    <color name="colorMiscellaneousIcon">#CC000000</color>
+    <color name="colorTextMiscellaneous">#000000</color>
+
+
 </resources>

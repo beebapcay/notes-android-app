@@ -22,10 +22,18 @@ public class Note implements Serializable {
     @ColumnInfo(name = "content")
     private String mContent;
 
+    @ColumnInfo(name = "color")
+    private String mColor;
+
+    @ColumnInfo(name = "image_path")
+    private String mImagePath;
+
     public Note() {
         mTitle = "";
         mContent = "";
         mDateTime = null;
+        mColor = "#FFFFFF";
+        mImagePath = null;
     }
 
     public int getId() {
@@ -60,7 +68,22 @@ public class Note implements Serializable {
         mContent = content;
     }
 
-    @NonNull
+    public String getColor() {
+        return mColor;
+    }
+
+    public void setColor(String color) {
+        mColor = color;
+    }
+
+    public String getImagePath() {
+        return mImagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        mImagePath = imagePath;
+    }
+
     @Override
     public String toString() {
         return "Note{" +
@@ -68,8 +91,8 @@ public class Note implements Serializable {
                 ", mTitle='" + mTitle + '\'' +
                 ", mDateTime='" + mDateTime + '\'' +
                 ", mContent='" + mContent + '\'' +
+                ", mColor='" + mColor + '\'' +
+                ", mImagePath='" + mImagePath + '\'' +
                 '}';
     }
-
-
 }

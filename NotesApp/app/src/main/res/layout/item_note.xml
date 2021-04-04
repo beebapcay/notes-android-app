@@ -4,30 +4,40 @@
     android:id="@+id/view_note"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/_5sdp"
     android:layout_marginTop="@dimen/_5sdp"
-    android:paddingTop="@dimen/_10sdp"
-    android:paddingBottom="@dimen/_10sdp"
+    android:layout_marginStart="@dimen/_5sdp"
     android:layout_marginEnd="@dimen/_5sdp"
     android:layout_marginBottom="@dimen/_5sdp"
     android:background="@drawable/bg_item_note"
-    android:backgroundTint="@color/colorItemNoteBackground">
+    android:backgroundTint="@color/colorNoteBackground1"
+    android:paddingBottom="@dimen/_10sdp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius_top_left="@dimen/_15sdp"
+        app:riv_corner_radius_top_right="@dimen/_15sdp"/>
 
     <TextView
         android:id="@+id/text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
-        android:text="@string/default_note_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@null"
         android:fontFamily="@font/open_sans_regular"
-        android:textStyle="bold"
         android:includeFontPadding="false"
+        android:text="@string/default_note_title"
+        android:paddingTop="@dimen/_10sdp"
         android:textColor="@color/colorTextItemNoteTitle"
         android:textSize="@dimen/_14ssp"
-        android:background="@null"
-        />
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_image" />
 
     <TextView
         android:id="@+id/text_date_time"
@@ -35,15 +45,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:text="@string/default_date_time"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_title"
+        android:background="@null"
         android:fontFamily="@font/open_sans_italic"
         android:includeFontPadding="false"
+        android:text="@string/default_date_time"
         android:textColor="@color/colorTextItemNoteDateTime"
         android:textSize="@dimen/_10ssp"
-        android:background="@null"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_title" />
+
 
     <TextView
         android:id="@+id/text_content"
@@ -51,15 +61,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:text="@string/default_note_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_date_time"
+        android:background="@null"
         android:fontFamily="@font/open_sans_regular"
         android:includeFontPadding="false"
+        android:text="@string/default_note_content"
         android:textColor="@color/colorTextItemNoteContent"
         android:textSize="@dimen/_12ssp"
-        android:background="@null"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_date_time" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

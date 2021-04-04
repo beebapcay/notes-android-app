@@ -65,6 +65,7 @@
                     android:textColor="@color/colorTextTitleSecondary"
                     android:textColorHint="@color/colorTextTertiary"
                     android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/btn_done"
                     app:layout_constraintStart_toEndOf="@id/btn_back"
@@ -105,24 +106,50 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/text_date_time"
-                android:layout_width="match_parent"
+                android:id="@+id/text_note_date_time"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@null"
                 android:fontFamily="@font/open_sans_italic"
                 android:gravity="end"
                 android:includeFontPadding="false"
                 android:paddingTop="@dimen/_2sdp"
-                android:paddingEnd="@dimen/_20sdp"
                 android:paddingBottom="@dimen/_2sdp"
                 android:text="@string/default_date_time"
                 android:textColor="@color/colorTextSecondary"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_indicator"
                 app:layout_constraintTop_toBottomOf="@+id/view_actions_bar" />
+
+            <ImageView
+                android:id="@+id/img_indicator"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:scaleType="fitStart"
+                android:src="@drawable/bg_indicator"
+                app:layout_constraintBottom_toBottomOf="@id/text_note_date_time"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/text_note_date_time"
+                app:tint="@color/colorDefaultIndicator"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/img_note_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:adjustViewBounds="true"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/text_note_date_time"
+                tools:ignore="ContentDescription" />
 
             <EditText
                 android:id="@+id/text_note_content"
@@ -147,11 +174,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_date_time" />
+                app:layout_constraintTop_toBottomOf="@id/img_note_image" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </ScrollView>
+
+    <include layout="@layout/partial_miscellaneous" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "6a6c901b2eccbc34c03f05852fab67f0",
+    "version": 3,
+    "identityHash": "4f8379e89f00863b810be8fe36f8d35e",
     "entities": [
       {
         "tableName": "notes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tile` TEXT, `date_time` TEXT, `content` TEXT, `color` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tile` TEXT, `date_time` TEXT, `content` TEXT, `color` TEXT, `image_path` TEXT)",
         "fields": [
           {
             "fieldPath": "mId",
@@ -37,6 +37,12 @@
             "columnName": "color",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "mImagePath",
+            "columnName": "image_path",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -52,7 +58,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6a6c901b2eccbc34c03f05852fab67f0')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4f8379e89f00863b810be8fe36f8d35e')"
     ]
   }
 }
