@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">NotesApp</string>
+    <string name="app_name">Notes Application</string>
+
+    <string name="des_image">Image Description</string>
+    <string name="title_all_notes">All notes</string>
+    <string name="msg_number_of_notes">Number of notes</string>
+    <string name="hint_note_title">Note Title</string>
+    <string name="hint_note_content">Type note here ...</string>
+    <string name="default_date_time">Thu, 01 Jan 1970 00:00</string>
+    <string name="default_note_title">Note Title</string>
+    <string name="default_note_content">Content Note</string>
+    <string name="action_pick_color">Pick Color</string>
+    <string name="title_Miscellaneous">Miscellaneous</string>
+    <string name="action_add_image">Add image</string>
+    <string name="action_delete_note">Delete note</string>
+    <string name="title_dialog_delete_note">Delete note</string>
+    <string name="msg_dialog_delete_note">Are you sure you want to delete this note?</string>
+    <string name="action_delete">DELETE</string>
+    <string name="action_cancel">CANCEL</string>
+    <string name="hint_search_here">Search here</string>
 </resources>

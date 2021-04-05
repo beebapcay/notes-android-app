@@ -1,10 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!--    Regular color   -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <!--    Custom Application color    -->
+    <color name="colorPrimary">#F2F2F2</color>
+    <color name="colorSecondary">#000000</color>
+    <color name="colorAccent">#F36A50</color>
+
+    <color name="colorTextTitlePrimary">#243347</color>
+    <color name="colorTextTitleSecondary">#293443</color>
+    <color name="colorTextHighlight"></color>
+    <color name="colorTextPrimary">#000000</color>
+    <color name="colorTextSecondary">#888888</color>
+    <color name="colorTextTertiary">#BCBCBC</color>
+    <color name="colorTextQuaternary">#FCFCFC</color>
+
+    <color name="colorQuickActionsBarBackground">#F2F2F2</color>
+    <color name="colorQuickActionsBarIcon">#000000</color>
+    <color name="colorAddNoteIcon">#FFFFFF</color>
+    <color name="colorAddNoteBackground">#F46A4E</color>
+
+    <color name="colorItemNoteBackground">#FFFFFF</color>
+    <color name="colorTextItemNoteTitle">#243347</color>
+    <color name="colorTextItemNoteDateTime">#888888</color>
+    <color name="colorTextItemNoteContent">#E6000000</color>
+
+    <color name="colorDefaultIndicator">#F46A4E</color>
+    <color name="colorDonePickColorIcon">#000000</color>
+    <color name="colorNoteBackground1">#FFFFFF</color>
+    <color name="colorNoteBackground2">#F8E2FF</color>
+    <color name="colorNoteBackground3">#DFF8FF</color>
+    <color name="colorNoteBackground4">#FFE0DE</color>
+    <color name="colorNoteBackground5">#DEFFF4</color>
+    <color name="colorNoteBackground6">#FFF9DD</color>
+
+    <color name="colorMiscellaneousBackground">#FFFFFF</color>
+    <color name="colorTextTitleMiscellaneous">#000000</color>
+    <color name="colorMiscellaneousIcon">#CC000000</color>
+    <color name="colorTextMiscellaneous">#000000</color>
+
+    <color name="colorDeleteNoteImageIcon">#FFFFFF</color>
+    <color name="colorDeleteNoteImageBackground">#BB2020</color>
+
+    <color name="colorDeleteNoteIcon">#BB2020</color>
+    <color name="colorTextDeleteNote">#BB2020</color>
+
+    <color name="colorDialogBackground">#FFFFFF</color>
+    <color name="colorDialogMessage">#000000</color>
+    <color name="colorDialogAction">#4E2017</color>
+    <color name="colorDialogOutsideBackground">#B3FFFFFF</color>
+
+    <color name="colorTextSearch">#CC000000</color>
+
 </resources>
