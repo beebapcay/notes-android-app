@@ -15,6 +15,14 @@ public class ActivityUtils {
             imm.hideSoftInputFromWindow(currentFocusedView.getWindowToken(), imm.HIDE_NOT_ALWAYS);
     }
 
+    public static void showKeyboard(Context context) {
+        Activity activity = (Activity) context;
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View currentFocusedView = activity.getCurrentFocus();
+        if (currentFocusedView != null)
+            imm.showSoftInput(currentFocusedView, imm.SHOW_IMPLICIT);
+    }
+
     public static Activity getActivity(Context context)
     {
         if (context == null)

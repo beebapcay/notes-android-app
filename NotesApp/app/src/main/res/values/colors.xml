@@ -42,5 +42,17 @@
     <color name="colorMiscellaneousIcon">#CC000000</color>
     <color name="colorTextMiscellaneous">#000000</color>
 
+    <color name="colorDeleteNoteImageIcon">#FFFFFF</color>
+    <color name="colorDeleteNoteImageBackground">#BB2020</color>
+
+    <color name="colorDeleteNoteIcon">#BB2020</color>
+    <color name="colorTextDeleteNote">#BB2020</color>
+
+    <color name="colorDialogBackground">#FFFFFF</color>
+    <color name="colorDialogMessage">#000000</color>
+    <color name="colorDialogAction">#4E2017</color>
+    <color name="colorDialogOutsideBackground">#B3FFFFFF</color>
+
+    <color name="colorTextSearch">#CC000000</color>
 
 </resources>

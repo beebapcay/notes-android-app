@@ -3,6 +3,8 @@ package com.beebapcay.notesapp.adapters;
 import android.content.res.ColorStateList;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,16 +19,22 @@ import com.beebapcay.notesapp.listeners.NotesListener;
 import com.beebapcay.notesapp.models.Note;
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
 
     private List<Note> mNotes;
     private NotesListener mNotesListener;
+    private Timer mTimer;
+    private List<Note> mNotesSource;
 
     public NotesAdapter(List<Note> notes, NotesListener notesListener) {
         mNotes = notes;
         mNotesListener = notesListener;
+        mNotesSource = notes;
     }
 
     @NonNull
@@ -60,6 +68,40 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    public void searchNote(final String searchKeyWord) {
+        mTimer = new Timer();
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (searchKeyWord.trim().isEmpty()) {
+                    mNotes = mNotesSource;
+                } else {
+                    ArrayList<Note> temp = new ArrayList<>();
+                    for (Note note : mNotesSource) {
+                        if (note.getTitle().toLowerCase().contains(searchKeyWord.toLowerCase())
+                                || note.getContent().toLowerCase().contains(searchKeyWord.toLowerCase())) {
+                            temp.add(note);
+                        }
+                    }
+                    mNotes = temp;
+                }
+
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+        }, 500);
+    }
+
+
+    public void cancelTimer() {
+        if (mTimer != null)
+            mTimer.cancel();
     }
 
     static class NoteViewHolder extends RecyclerView.ViewHolder {

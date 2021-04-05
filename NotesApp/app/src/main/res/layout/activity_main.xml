@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".views.MainActivity">
+    tools:context=".views.MainActivity"
+    android:animateLayoutChanges="true">
 
     <TextView
         android:id="@+id/text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_40sdp"
         android:fontFamily="@font/open_sans_regular"
         android:gravity="center"
         android:includeFontPadding="false"
@@ -61,6 +62,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/colorQuickActionsBarBackground"
+            android:src="@drawable/ic_back"
+            android:tint="@color/colorQuickActionsBarIcon"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <EditText
+            android:id="@+id/text_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@null"
+            android:fontFamily="@font/open_sans_regular"
+            android:hint="@string/hint_search_here"
+            android:includeFontPadding="false"
+            android:inputType="text"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:text=""
+            android:textColor="@color/colorTextSearch"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/btn_search"
+            app:layout_constraintStart_toStartOf="@id/btn_back" />
 
         <ImageButton
             android:id="@+id/btn_search"
