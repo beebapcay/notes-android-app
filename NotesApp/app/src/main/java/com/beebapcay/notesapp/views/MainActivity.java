@@ -9,29 +9,37 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.beebapcay.notesapp.R;
 import com.beebapcay.notesapp.adapters.NotesAdapter;
+import com.beebapcay.notesapp.adapters.TagsAdapter;
 import com.beebapcay.notesapp.database.NotesDatabase;
+import com.beebapcay.notesapp.entities.Note;
+import com.beebapcay.notesapp.entities.Tag;
 import com.beebapcay.notesapp.listeners.NotesListener;
-import com.beebapcay.notesapp.models.Note;
+import com.beebapcay.notesapp.listeners.TagsListener;
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexboxLayoutManager;
+import com.google.android.flexbox.JustifyContent;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import static com.beebapcay.notesapp.utils.ActivityUtils.hideKeyboard;
-import static com.beebapcay.notesapp.utils.ActivityUtils.showKeyboard;
 
-public class MainActivity extends AppCompatActivity implements NotesListener {
+public class MainActivity extends AppCompatActivity implements NotesListener, TagsListener {
 
     public static final String EXTRA_IS_VIEW_OR_UPDATE = "com.beebapcay.notesapp.views.MainActivity.EXTRA_IS_VIEW_OR_UPDATE";
     public static final String EXTRA_DATA_NOTE = "com.beebapcay.notesapp.views.MainActivity.EXTRA_DATA_NOTE";
@@ -41,12 +49,16 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
     private static final String TAG = "com.beebapcay.notesapp.views.MainActivity";
     private Context mContext;
     private RecyclerView mNotesRecyclerView;
+    private RecyclerView mTagsRecyclerView;
     private List<Note> mNoteList;
+    private List<Tag> mTagList;
     private NotesAdapter mNotesAdapter;
+    private TagsAdapter mTagsAdapter;
     private TextView mNumberNotes;
     private ImageButton mSearchBtn, mBackBtn;
     private EditText mSearchInput;
     private int noteClickedPosition = -1;
+    private int tagClickedPosition = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +81,25 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         );
 
+        mTagsRecyclerView = findViewById(R.id.view_tags_list);
+        FlexboxLayoutManager flexboxLayoutManager = new FlexboxLayoutManager(mContext);
+        flexboxLayoutManager.setFlexDirection(FlexDirection.ROW);
+//        flexboxLayoutManager.setJustifyContent(JustifyContent.CENTER);
+        mTagsRecyclerView.setLayoutManager(
+//                new LinearLayoutManager(mContext, RecyclerView.HORIZONTAL, false)
+                flexboxLayoutManager
+        );
+
         mNumberNotes = findViewById(R.id.text_number_notes);
 
         mNoteList = new ArrayList<>();
         mNotesAdapter = new NotesAdapter(mNoteList, this);
         mNotesRecyclerView.setAdapter(mNotesAdapter);
+
+        mTagList = new ArrayList<>();
+        mTagList.add(new Tag(""));
+        mTagsAdapter = new TagsAdapter(mTagList, this);
+        mTagsRecyclerView.setAdapter(mTagsAdapter);
 
         mSearchInput = findViewById(R.id.text_search);
 
@@ -85,10 +111,11 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                 findViewById(R.id.btn_more).setVisibility(View.GONE);
                 findViewById(R.id.text_title).setVisibility(View.GONE);
                 findViewById(R.id.text_number_notes).setVisibility(View.GONE);
-                mSearchBtn.setVisibility(View.GONE);
 
+                getTags();
                 findViewById(R.id.btn_back).setVisibility(View.VISIBLE);
                 mSearchInput.setVisibility(View.VISIBLE);
+                mTagsRecyclerView.setVisibility(View.VISIBLE);
 
                 mSearchInput.requestFocus();
 //                showKeyboard(mContext);
@@ -104,10 +131,11 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                 findViewById(R.id.btn_more).setVisibility(View.VISIBLE);
                 findViewById(R.id.text_title).setVisibility(View.VISIBLE);
                 findViewById(R.id.text_number_notes).setVisibility(View.VISIBLE);
-                mSearchBtn.setVisibility(View.VISIBLE);
 
                 findViewById(R.id.btn_back).setVisibility(View.GONE);
                 findViewById(R.id.text_search).setVisibility(View.GONE);
+                mSearchInput.setText("");
+                mTagsRecyclerView.setVisibility(View.GONE);
             }
         });
 
@@ -175,6 +203,38 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
         new GetNotesTask().execute();
     }
 
+    private void getTags() {
+        class GetTagsTask extends AsyncTask<Void, Void, List<Tag>> {
+            @Override
+            protected List<Tag> doInBackground(Void... voids) {
+                ArrayList<String> tagNameList = new ArrayList<>();
+                for (Note note : mNoteList)
+                    if (!note.getTag().trim().isEmpty())
+                        tagNameList.add(note.getTag());
+                tagNameList = new ArrayList<>(new TreeSet<>(tagNameList));
+                List<Tag> temp = new ArrayList<>();
+                for (String tagName : tagNameList)
+                    temp.add(new Tag(tagName));
+                return temp;
+
+            }
+
+            @SuppressLint("LongLogTag")
+            @Override
+            protected void onPostExecute(List<Tag> tags) {
+                super.onPostExecute(tags);
+                Log.d(TAG + ".Tag: ", tags.toString());
+                mTagList.clear();
+                mTagList.add(new Tag(""));
+                mTagList.addAll(tags);
+                mTagsAdapter.notifyDataSetChanged();
+            }
+
+        }
+
+        new GetTagsTask().execute();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -184,7 +244,6 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             if (data != null) {
                 getNotes(REQUEST_CODE_UPDATE_NOTE, data.getBooleanExtra(CreateNoteActivity.EXTRA_IS_NOTE_DELETE, false));
             }
-
         }
     }
 
@@ -195,5 +254,11 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
         intent.putExtra(EXTRA_IS_VIEW_OR_UPDATE, true);
         intent.putExtra(EXTRA_DATA_NOTE, note);
         startActivityForResult(intent, REQUEST_CODE_UPDATE_NOTE);
+    }
+
+    @Override
+    public void onTagClicked(Tag tag, int position) {
+        tagClickedPosition = position;
+        mSearchInput.setText(mTagList.get(position).getName());
     }
 }

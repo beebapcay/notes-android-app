@@ -1,6 +1,5 @@
-package com.beebapcay.notesapp.models;
+package com.beebapcay.notesapp.entities;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -28,12 +27,24 @@ public class Note implements Serializable {
     @ColumnInfo(name = "image_path")
     private String mImagePath;
 
+    @ColumnInfo(name = "tag")
+    private String mTag;
+
     public Note() {
         mTitle = "";
         mContent = "";
         mDateTime = null;
         mColor = "#FFFFFF";
         mImagePath = null;
+        mTag = null;
+    }
+
+    public String getTag() {
+        return mTag;
+    }
+
+    public void setTag(String tag) {
+        mTag = tag;
     }
 
     public int getId() {
@@ -93,6 +104,7 @@ public class Note implements Serializable {
                 ", mContent='" + mContent + '\'' +
                 ", mColor='" + mColor + '\'' +
                 ", mImagePath='" + mImagePath + '\'' +
+                ", mTag='" + mTag + '\'' +
                 '}';
     }
 }

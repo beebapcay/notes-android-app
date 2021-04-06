@@ -14,4 +14,13 @@
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
     </style>
+
+    <style name="Theme.NotesApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.NotesApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.NotesApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

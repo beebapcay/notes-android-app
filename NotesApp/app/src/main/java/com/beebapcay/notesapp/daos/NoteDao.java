@@ -1,4 +1,4 @@
-package com.beebapcay.notesapp.dao;
+package com.beebapcay.notesapp.daos;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -6,7 +6,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.beebapcay.notesapp.models.Note;
+import com.beebapcay.notesapp.entities.Note;
+import com.beebapcay.notesapp.entities.Tag;
 
 import java.util.List;
 
@@ -20,5 +21,4 @@ public interface NoteDao {
 
     @Delete
     void deleteNote(Note note);
-
 }

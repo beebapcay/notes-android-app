@@ -14,7 +14,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -33,7 +32,7 @@ import androidx.core.content.ContextCompat;
 
 import com.beebapcay.notesapp.R;
 import com.beebapcay.notesapp.database.NotesDatabase;
-import com.beebapcay.notesapp.models.Note;
+import com.beebapcay.notesapp.entities.Note;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.io.FileNotFoundException;
@@ -57,6 +56,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     private Context mContext;
     private ImageView mIndicator;
     private ImageView mImageNote;
+    private EditText mTagNoteInput;
 
     private String mSelectedNoteColor;
     private String mSelectedImagePath;
@@ -75,6 +75,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideKeyboard(mContext);
                 onBackPressed();
             }
         });
@@ -84,6 +85,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         mNoteDateTime = findViewById(R.id.text_note_date_time);
         mIndicator = findViewById(R.id.img_indicator);
         mImageNote = findViewById(R.id.img_note_image);
+        mTagNoteInput = findViewById(R.id.text_note_tag);
 
         mNoteDateTime.setText(
                 new SimpleDateFormat("EEE, dd MMM yyyy HH:mm", Locale.getDefault())
@@ -118,6 +120,23 @@ public class CreateNoteActivity extends AppCompatActivity {
 
         initMiscellaneous();
         setIndicatorColor();
+
+        final ConstraintLayout viewMiscellaneous = findViewById(R.id.view_miscellaneous);
+        final BottomSheetBehavior<ConstraintLayout> bottomSheetBehavior = BottomSheetBehavior.from(viewMiscellaneous);
+
+        mTitleNoteInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+
+        mContentNoteInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
     }
 
     private void saveNote() {
@@ -133,6 +152,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         note.setDateTime(mNoteDateTime.getText().toString());
         note.setColor(mSelectedNoteColor);
         note.setImagePath(mSelectedImagePath);
+        note.setTag(mTagNoteInput.getText().toString());
 
         if (mAlreadyAvailableNote != null)
             note.setId(mAlreadyAvailableNote.getId());
@@ -381,6 +401,7 @@ public class CreateNoteActivity extends AppCompatActivity {
 
     private void setViewOrUpdateNote() {
         mTitleNoteInput.setText(mAlreadyAvailableNote.getTitle());
+        mTagNoteInput.setText(mAlreadyAvailableNote.getTag());
         mContentNoteInput.setText(mAlreadyAvailableNote.getContent());
         mNoteDateTime.setText(mAlreadyAvailableNote.getDateTime());
         if (mAlreadyAvailableNote.getImagePath() != null && !mAlreadyAvailableNote.getImagePath().trim().isEmpty()) {

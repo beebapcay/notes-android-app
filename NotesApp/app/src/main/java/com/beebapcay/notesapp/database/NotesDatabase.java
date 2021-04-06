@@ -6,10 +6,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.beebapcay.notesapp.dao.NoteDao;
-import com.beebapcay.notesapp.models.Note;
+import com.beebapcay.notesapp.daos.NoteDao;
+import com.beebapcay.notesapp.entities.Note;
 
-@Database(entities = Note.class, version = 3, exportSchema = true)
+@Database(entities = Note.class, version = 4, exportSchema = true)
 public abstract class NotesDatabase extends RoomDatabase {
     private static NotesDatabase sNotesDatabase;
 

@@ -166,6 +166,53 @@
                 app:layout_constraintTop_toTopOf="@id/img_note_image"
                 app:tint="@color/colorDeleteNoteImageIcon" />
 
+            <TextView
+                android:id="@+id/text_note_tag_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@null"
+                android:fontFamily="@font/open_sans_regular"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:text="#"
+                android:paddingEnd="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textColor="@color/colorTagText"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_note_image" />
+
+            <EditText
+                android:id="@+id/text_note_tag"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@null"
+                android:fontFamily="@font/open_sans_regular"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:hint="@string/hint_note_tag"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textColor="@color/colorTagText"
+                android:textColorHint="@color/colorTextTertiary"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/text_note_tag_sign"
+                app:layout_constraintTop_toBottomOf="@id/img_note_image" />
+
             <EditText
                 android:id="@+id/text_note_content"
                 android:layout_width="match_parent"
@@ -188,8 +235,8 @@
                 android:textSize="@dimen/_14ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/img_note_image" />
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_note_tag" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

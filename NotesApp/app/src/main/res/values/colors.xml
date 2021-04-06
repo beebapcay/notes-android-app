@@ -55,4 +55,13 @@
 
     <color name="colorTextSearch">#CC000000</color>
 
+    <color name="colorMenuDrawerBackground">#FFFFFF</color>
+    <color name="colorMenuDrawerText">#000000</color>
+    <color name="colorMenuDrawerIcon">#CC474747</color>
+    <color name="colorItemTagBackground">#1C1C1C</color>
+    <color name="colorItemTagText">#FFFFFF</color>
+
+    <color name="colorTagText">#FF5722</color>
+
+
 </resources>

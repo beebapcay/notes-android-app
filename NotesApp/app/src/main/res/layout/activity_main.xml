@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/colorPrimary"
-    tools:context=".views.MainActivity"
-    android:animateLayoutChanges="true">
+    tools:context=".views.MainActivity">
 
     <TextView
         android:id="@+id/text_title"
@@ -129,6 +129,20 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_tags_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/_15sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_quick_actions_bar" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/view_notes_list"
@@ -142,7 +156,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_quick_actions_bar" />
+        app:layout_constraintTop_toBottomOf="@id/view_tags_list" />
 
     <ImageButton
         android:id="@+id/btn_add_note"

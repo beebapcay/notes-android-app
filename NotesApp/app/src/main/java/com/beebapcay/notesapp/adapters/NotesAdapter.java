@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.beebapcay.notesapp.R;
 import com.beebapcay.notesapp.listeners.NotesListener;
-import com.beebapcay.notesapp.models.Note;
+import com.beebapcay.notesapp.entities.Note;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
@@ -81,7 +81,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
                     ArrayList<Note> temp = new ArrayList<>();
                     for (Note note : mNotesSource) {
                         if (note.getTitle().toLowerCase().contains(searchKeyWord.toLowerCase())
-                                || note.getContent().toLowerCase().contains(searchKeyWord.toLowerCase())) {
+                                || note.getContent().toLowerCase().contains(searchKeyWord.toLowerCase())
+                                || note.getTag().toLowerCase().contains(searchKeyWord.toLowerCase())) {
                             temp.add(note);
                         }
                     }
