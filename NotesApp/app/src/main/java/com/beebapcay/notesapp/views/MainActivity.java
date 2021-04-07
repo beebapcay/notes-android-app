@@ -12,10 +12,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -26,15 +27,13 @@ import com.beebapcay.notesapp.database.NotesDatabase;
 import com.beebapcay.notesapp.entities.Note;
 import com.beebapcay.notesapp.entities.Tag;
 import com.beebapcay.notesapp.listeners.NotesListener;
+import com.beebapcay.notesapp.listeners.RecyclerViewSwipeListener;
 import com.beebapcay.notesapp.listeners.TagsListener;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexboxLayoutManager;
-import com.google.android.flexbox.JustifyContent;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
 
 import static com.beebapcay.notesapp.utils.ActivityUtils.hideKeyboard;
@@ -95,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements NotesListener, Ta
         mNoteList = new ArrayList<>();
         mNotesAdapter = new NotesAdapter(mNoteList, this);
         mNotesRecyclerView.setAdapter(mNotesAdapter);
+
 
         mTagList = new ArrayList<>();
         mTagList.add(new Tag(""));
@@ -159,6 +159,14 @@ public class MainActivity extends AppCompatActivity implements NotesListener, Ta
         });
 
         getNotes(REQUEST_CODE_SHOW_ALL_NOTE, false);
+
+//        ConstraintLayout mQuickActionBar = findViewById(R.id.view_quick_actions_bar);
+//        ImageButton mMoreBtn = findViewById(R.id.btn_more);
+//        mMoreBtn.setOnClickListener(v -> {
+//            int [] location = new int[2];
+//            mQuickActionBar.getLocationOnScreen(location);
+//            Toast.makeText(mContext, "Location Y:" + location[1], Toast.LENGTH_SHORT).show();
+//        });
     }
 
 

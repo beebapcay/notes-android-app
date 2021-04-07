@@ -65,9 +65,12 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     //StickyScrollView
-    implementation 'com.github.amarjain07:StickyScrollView:1.0.2'
+    implementation 'se.emilsjolander:StickyScrollViewItems:1.1.0'
 
     //FlexBoxLayout
     implementation 'com.google.android:flexbox:2.0.1'
+
+    //RippleEffect
+    implementation 'com.github.traex.rippleeffect:library:1.3'
 
 }

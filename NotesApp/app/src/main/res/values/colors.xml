@@ -28,8 +28,8 @@
     <color name="colorTextItemNoteDateTime">#888888</color>
     <color name="colorTextItemNoteContent">#E6000000</color>
 
-    <color name="colorDefaultIndicator">#F46A4E</color>
     <color name="colorDonePickColorIcon">#000000</color>
+    <color name="colorDefaultIndicator">#F46A4E</color>
     <color name="colorNoteBackground1">#FFFFFF</color>
     <color name="colorNoteBackground2">#F8E2FF</color>
     <color name="colorNoteBackground3">#DFF8FF</color>
@@ -61,7 +61,7 @@
     <color name="colorItemTagBackground">#1C1C1C</color>
     <color name="colorItemTagText">#FFFFFF</color>
 
-    <color name="colorTagText">#FF5722</color>
+    <color name="colorTagText">#1B0600</color>
 
 
 </resources>
