@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements NotesListener, Ta
         mNotesRecyclerView.setLayoutManager(
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         );
+        
 
         mTagsRecyclerView = findViewById(R.id.view_tags_list);
         FlexboxLayoutManager flexboxLayoutManager = new FlexboxLayoutManager(mContext);
